@@ -1,0 +1,20 @@
+<div class="container py-3">
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <%= image_tag(@pet.photo_url, width: '100%') %>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <h1><%= @pet.name %></h1>
+      <p>Some awesome description of our amazing pet.</p>
+      <p>Amount: <%= humanized_money_with_symbol(@pet.price) %></p>
+    </div>
+  </div>
+  <div class="row"style='padding: 10px'>
+    <div class="col-sm12 col-md-6">
+      <%= form_tag orders_path do %>
+      <%= hidden_field_tag 'pet_id', @pet.id %>
+      <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
